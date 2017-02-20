@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="5dp">
+
+
+    <LinearLayout
+        android:id="@+id/course_time_choose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+        android:onClick="kbOnClick">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#76a2e4"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:layout_height="match_parent"
+                android:text="@string/schooltime"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:layout_height="match_parent"
+                android:id="@+id/kbtime_show"
+                android:textColor="@color/color1" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#76a2e4"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/course_table_num"
+        android:layout_below="@+id/course_time_choose"
+        android:layout_margin="10dp"
+        android:textStyle="italic"
+        android:text="我的课表/0"
+        android:textSize="12sp"/>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/my_course_table"
+        android:layout_below="@+id/course_table_num"
+        android:layout_above="@+id/kbsearch"
+        android:divider="#00000000"
+        android:dividerHeight="10dp"
+        android:scrollbars="none">
+    </ListView>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/kbsearch"
+        android:text="@string/search"
+        android:onClick="kbOnClick" />
+
+</RelativeLayout>

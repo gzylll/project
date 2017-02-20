@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="course_color1">#7bf59d</color>
+    <color name="course_color2">#f4ad62</color>
+    <color name="course_color3">#727df1</color>
+    <color name="course_color4">#f76169</color>
+    <color name="course_color5">#d380f4</color>
+    <color name="color1">#92c0ed</color>
+    <color name="popwindow_color">#EAEAEA</color>
+</resources>
