@@ -14,13 +14,13 @@
         <activity android:name=".Activity.Main.LoadActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".Activity.Main.LoginActivity" />
         <activity android:name=".Activity.Search.SearchMainActivity" />
-        <activity
-            android:name=".Activity.Search.CourseSearchActivity" />
+        <activity android:name=".Activity.Search.CourseSearchActivity" />
         <activity
             android:name=".Activity.Search.GradeActivity"
             android:parentActivityName=".Activity.Search.SearchMainActivity" />
@@ -28,7 +28,8 @@
             android:name=".Activity.Search.ExamActivity"
             android:parentActivityName=".Activity.Search.SearchMainActivity" />
         <activity android:name=".Activity.Search.EmptyRoomActivity" />
-        <activity android:name=".Activity.Search.CourseActivity"/>
+        <activity android:name=".Activity.Search.CourseActivity" />
+        <activity android:name=".Activity.Main.MainActivity"></activity>
     </application>
 
 </manifest>
