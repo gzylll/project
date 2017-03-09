@@ -10,9 +10,9 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.teachingassistant.Activity.Search.CourseSearchActivity;
-import com.teachingassistant.Activity.Search.ExamActivity;
-import com.teachingassistant.Activity.Search.GradeActivity;
+import com.teachingassistant.Activity.Education.CourseSearchActivity;
+import com.teachingassistant.Activity.Education.ExamActivity;
+import com.teachingassistant.Activity.Education.GradeActivity;
 import com.teachingassistant.R;
 import com.teachingassistant.Support.Net.Jxhtml;
 

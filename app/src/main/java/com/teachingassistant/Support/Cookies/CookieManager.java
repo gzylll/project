@@ -1,6 +1,6 @@
 package com.teachingassistant.Support.Cookies;
 
-import com.teachingassistant.Support.Bean.MyApplication;
+import com.teachingassistant.MyApplication;
 
 import java.util.List;
 

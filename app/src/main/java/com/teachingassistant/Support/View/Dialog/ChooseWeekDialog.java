@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.teachingassistant.Presenter.TextWheelAdapter;
 import com.teachingassistant.R;
-import com.teachingassistant.Support.Bean.MyApplication;
+import com.teachingassistant.MyApplication;
 import com.teachingassistant.Support.View.WheelView.view.OnWheelChangedListener;
 import com.teachingassistant.Support.View.WheelView.view.OnWheelScrollListener;
 import com.teachingassistant.Support.View.WheelView.view.WheelView;

@@ -69,7 +69,6 @@
 
     </LinearLayout>
 
-
     <Button
         android:id="@+id/login"
         android:layout_width="fill_parent"
@@ -80,4 +79,18 @@
         android:textStyle="bold"
         android:onClick="loginOnClick" />
 
+    <ProgressBar
+        android:id="@+id/login_progress"
+        android:paddingTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:visibility="gone"
+        style="@style/AlertDialog.AppCompat.Light"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:id="@+id/login_status"/>
 </LinearLayout>
