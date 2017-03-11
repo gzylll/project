@@ -92,8 +92,6 @@ public class LoginActivity extends AppCompatActivity {
         public void OnPwdLoginSuccess(TLSUserInfo tlsUserInfo) {
             Log.d("LoginActivity","TLS登陆成功");
             status.setText("TIM登陆");
-            //登陆成功获取UserSig
-            MyApplication.userSig = loginHelper.getUserSig(TIMaccount);
             //初始化TIMUser对象
             TIMUser timUser = new TIMUser();
             timUser.setIdentifier(TIMaccount);
@@ -263,6 +261,7 @@ public class LoginActivity extends AppCompatActivity {
             status.setText("验证矿大身份");
 
             TIMaccount = "cumt_"+username.getText().toString();
+            MyApplication.TIMAccount = TIMaccount;
             TIMpassword = password.getText().toString();
             //POST请求
             final RequestBody requestBody = new FormBody.Builder()

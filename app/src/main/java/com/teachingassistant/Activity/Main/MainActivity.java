@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTabHost;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -35,8 +36,8 @@ public class MainActivity extends FragmentActivity implements
         "教务","动态","课程","消息"};
     //fragment图片
     private final int ImageArray[]={
-            R.drawable.bg_tab_person,R.drawable.bg_tab_person,
-            R.drawable.bg_tab_person,R.drawable.bg_tab_person};
+            R.drawable.bg_tab_education,R.drawable.bg_tab_dynamic,
+            R.drawable.bg_tab_course,R.drawable.bg_tab_message};
     //fragment tab实例名字
     private String mTextviewArray[] = {"education", "dynamics", "course","conversation"};
     //viewpager
@@ -144,6 +145,7 @@ public class MainActivity extends FragmentActivity implements
     @Override
     public void onPageSelected(int position) {
         tabHost.setCurrentTab(position);
+        Log.i("position:",tabHost.getCurrentTabTag());
     }
 
     /**
