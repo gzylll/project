@@ -41,7 +41,7 @@ public class MyApplication extends Application {
     public static int accountType = 11118;
     public static String appVer = "1.0";
 
-    public static String userSig;
+    public static String TIMAccount;
 
     @Override
     public void onCreate() {
@@ -183,6 +183,21 @@ public class MyApplication extends Application {
             }
         }
         return list;
+    }
+
+    /**
+     * 查询是否存在某个课表
+     * @param string 课表名称
+     * @return bool
+     */
+    public boolean IsExistsCourseTable(String string) {
+        List<String> list = readCourseTableName();
+        for(int i=0;i<list.size();i++)
+        {
+            if(list.get(i).equals(string))
+                return true;
+        }
+        return false;
     }
 
     /**

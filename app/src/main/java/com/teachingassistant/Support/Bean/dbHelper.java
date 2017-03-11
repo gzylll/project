@@ -125,4 +125,26 @@ public class dbHelper {
         cursor.close();
         return courses;
     }
+
+    /**
+     * 查询所有的课程名称及教师名字
+     */
+    public List<Map<String,Object>> query()
+    {
+        Cursor cursor = db.query(tableName,
+                new String[]{"coursename","courseteacher"},
+                null,
+                null,null,null,null);
+        cursor.moveToFirst();
+        List<Map<String,Object>> courses = new ArrayList<>();
+        for(int i=0;i<cursor.getCount();i++)
+        {
+            Map<String,Object> course = new HashMap<>();
+            course.put("groupName",cursor.getString(0)+"-"+cursor.getString(1));
+            courses.add(course);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        return courses;
+    }
 }
