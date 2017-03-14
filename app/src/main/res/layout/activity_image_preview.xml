@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/black"
-    tools:context="com.tencent.qcloud.timchat.ui.ImagePreviewActivity">
+    android:background="@color/black" >
     <ImageView
         android:id="@+id/image"
         android:layout_centerInParent="true"
@@ -16,10 +15,11 @@
         android:id="@+id/imagePreviewTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        app:titleText="@string/chat_image_preview_title"
-        app:moreText="@string/chat_image_preview_send"
-        app:canBack="true" />
+        android:layout_alignParentTop="true"/>
+        <!--app:titleText="@string/chat_image_preview_title"-->
+        <!--app:moreText="@string/chat_image_preview_send"-->
+        <!--app:canBack="true" -->
+
     <LinearLayout
         android:id="@+id/buttonPanel"
         android:layout_width="match_parent"
