@@ -32,7 +32,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activity.Main.LoginActivity" />
-
         <activity android:name=".Activity.Education.CourseSearchActivity" />
         <activity
             android:name=".Activity.Education.GradeActivity"
@@ -44,19 +43,17 @@
         <activity android:name=".Activity.Education.CourseActivity" />
         <activity android:name=".Activity.Main.MainActivity" />
 
-        <!--  消息收发service -->
+        <!-- 消息收发service -->
         <service
             android:name="com.tencent.qalsdk.service.QalService"
             android:exported="false"
-            android:process=":QALSERVICE" >
-        </service>
-        <!--  消息收发辅助service -->
+            android:process=":QALSERVICE"></service>
+        <!-- 消息收发辅助service -->
         <service
             android:name="com.tencent.qalsdk.service.QalAssistService"
             android:exported="false"
-            android:process=":QALSERVICE" >
-        </service>
-        <!--  离线消息广播接收器 -->
+            android:process=":QALSERVICE"></service>
+        <!-- 离线消息广播接收器 -->
         <receiver
             android:name="com.tencent.qalsdk.QALBroadcastReceiver"
             android:exported="false">
@@ -64,9 +61,10 @@
                 <action android:name="com.tencent.qalsdk.broadcast.qal" />
             </intent-filter>
         </receiver>
-        <!--  系统消息广播接收器 -->
+        <!-- 系统消息广播接收器 -->
         <receiver
-            android:name="com.tencent.qalsdk.core.NetConnInfoCenter"  android:process=":QALSERVICE">
+            android:name="com.tencent.qalsdk.core.NetConnInfoCenter"
+            android:process=":QALSERVICE">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
@@ -80,6 +78,8 @@
                 <action android:name="android.intent.action.TIMEZONE_CHANGED" />
             </intent-filter>
         </receiver>
+
+        <activity android:name=".Activity.Chat.ChatActivity"></activity>
     </application>
 
 </manifest>

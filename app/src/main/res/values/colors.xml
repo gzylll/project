@@ -11,5 +11,15 @@
     <color name="color1">#92c0ed</color>
     <color name="popwindow_color">#EAEAEA</color>
     <color name="text_blue1">#1173CB</color>
+
+    <color name="text_gray2">#767676</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+
+    <color name="line">#DDDDDD</color>
+    <color name="line_btn">#BBBBBB</color>
     <color name="text_gray1">#777777</color>
+    <color name="background_gray1">#EBEBEB</color>
+
 </resources>
