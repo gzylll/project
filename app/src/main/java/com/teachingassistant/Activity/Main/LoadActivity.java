@@ -8,6 +8,11 @@ import android.support.v7.app.AppCompatActivity;
 import com.teachingassistant.MyApplication;
 import com.teachingassistant.R;
 import com.teachingassistant.Support.TIM.InitBusiness;
+import com.tencent.TIMManager;
+import com.tencent.TIMMessage;
+import com.tencent.TIMMessageListener;
+
+import java.util.List;
 
 public class LoadActivity extends AppCompatActivity {
 
@@ -17,6 +22,14 @@ public class LoadActivity extends AppCompatActivity {
         setContentView(R.layout.activity_load);
         //初始化IMSDK
         InitBusiness.initIMsdk(MyApplication.getContext());
+
+        //注册消息监听
+        TIMManager.getInstance().addMessageListener(new TIMMessageListener() {
+            @Override
+            public boolean onNewMessages(List<TIMMessage> list) {
+                return false;
+            }
+        });
 
         new Handler().postDelayed(new Runnable() {
             @Override
