@@ -260,14 +260,14 @@
 
 
             <!--第一列 列宽加1-->
-            <com.teachingassistant.Support.View.ListView.ListViewNoScroll
+            <com.teachingassistant.Support.CustomView.ListView.ListViewNoScroll
                 android:layout_width="33dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:divider="@color/colorPrimary"
                 android:dividerHeight="1dp"
                 android:id="@+id/part_list">
-            </com.teachingassistant.Support.View.ListView.ListViewNoScroll>
+            </com.teachingassistant.Support.CustomView.ListView.ListViewNoScroll>
 
             <!--课表部分-->
             <RelativeLayout

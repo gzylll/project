@@ -33,13 +33,15 @@ public class CourseFragment extends Fragment {
     private View view;
     private List<Map<String,Object>> list;
     private TextView nonGroup;
-    private List<TIMGroupBaseInfo> myGroup = new ArrayList<>();
+    private Boolean refreshTag = false;
 
     private AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
         }
     };
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -70,10 +72,16 @@ public class CourseFragment extends Fragment {
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
         if(isVisibleToUser){
-            //连接群组
-            connectGroup();
+            if(refreshTag) {
+                createGroup();
+                refreshTag = true;
+            }
+            else{
+                connectGroup();
+            }
         }
     }
+
 
     private void showGroup() {
         MyApplication app = new MyApplication();
@@ -110,7 +118,7 @@ public class CourseFragment extends Fragment {
      * 处理群组
      * 从服务器获得当前用户的群组id和群组名，并存储，如果没有的话就注册群或者加入群。
      */
-    private void connectGroup(){
+    private void createGroup(){
         //获取已加入的群组信息。
         TIMGroupManager.getInstance().getGroupList(new TIMValueCallBack<List<TIMGroupBaseInfo>>() {
             @Override
@@ -121,7 +129,11 @@ public class CourseFragment extends Fragment {
             @Override
             public void onSuccess(List<TIMGroupBaseInfo> timGroupBaseInfos) {
                 Log.i("查询群是否创建",String.valueOf(timGroupBaseInfos.size()));
-                myGroup = timGroupBaseInfos;
+                for(int i=0;i<timGroupBaseInfos.size();i++)
+                {
+                    TIMGroupBaseInfo baseInfo = timGroupBaseInfos.get(i);
+                    Log.i("我的群：",i+":id:"+baseInfo.getGroupId()+",name:"+baseInfo.getGroupName());
+                }
                 //列表非空表示自己的群已创建,否则建群
                 if(timGroupBaseInfos.size()==0&&list!= null) {
                     for(int i=0;i<list.size();i++)
@@ -159,6 +171,7 @@ public class CourseFragment extends Fragment {
                     }
                 }
                 else{
+                    connectGroup();
                 }
             }
         });
@@ -190,5 +203,9 @@ public class CourseFragment extends Fragment {
         }
         Log.i("建群：",String.valueOf((first+"-"+second).getBytes().length));
         return first+"-"+second;
+    }
+
+    private void connectGroup(){
+
     }
 }

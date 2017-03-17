@@ -23,6 +23,7 @@ import com.teachingassistant.MyApplication;
 public class EducationFragment extends Fragment implements View.OnClickListener{
 
     private MyApplication app;
+    private View view;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -34,21 +35,22 @@ public class EducationFragment extends Fragment implements View.OnClickListener{
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        Log.i("onCreate：","education");
-        View view = inflater.inflate(R.layout.fragment_education, container, false);
-        View view1 = view.findViewById(R.id.FragmentTitle);
-        TextView fragementTitle = (TextView) view1.findViewById(R.id.text_title);
-        fragementTitle.setText(app.readAccount()+"的个人教务");
-        ImageButton kbcx = (ImageButton) view.findViewById(R.id.kbcx);
-        kbcx.setOnClickListener(this);
-        ImageButton cjcx = (ImageButton) view.findViewById(R.id.cjcx);
-        cjcx.setOnClickListener(this);
-        ImageButton kscx = (ImageButton) view.findViewById(R.id.kscx);
-        kscx.setOnClickListener(this);
-        ImageButton kjscx = (ImageButton) view.findViewById(R.id.kjscx);
-        kjscx.setOnClickListener(this);
-        ImageButton grxx = (ImageButton) view.findViewById(R.id.grxx);
-        grxx.setOnClickListener(this);
+        if(view==null) {
+            view = inflater.inflate(R.layout.fragment_education, container, false);
+            View view1 = view.findViewById(R.id.FragmentTitle);
+            TextView fragementTitle = (TextView) view1.findViewById(R.id.text_title);
+            fragementTitle.setText(app.readAccount() + "的个人教务");
+            ImageButton kbcx = (ImageButton) view.findViewById(R.id.kbcx);
+            kbcx.setOnClickListener(this);
+            ImageButton cjcx = (ImageButton) view.findViewById(R.id.cjcx);
+            cjcx.setOnClickListener(this);
+            ImageButton kscx = (ImageButton) view.findViewById(R.id.kscx);
+            kscx.setOnClickListener(this);
+            ImageButton kjscx = (ImageButton) view.findViewById(R.id.kjscx);
+            kjscx.setOnClickListener(this);
+            ImageButton grxx = (ImageButton) view.findViewById(R.id.grxx);
+            grxx.setOnClickListener(this);
+        }
         return view;
     }
 

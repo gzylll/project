@@ -22,7 +22,8 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp">
-            <com.teachingassistant.Support.View.CircleImageView.CircleImageView
+
+            <com.teachingassistant.Support.CustomView.CircleImageView.CircleImageView
                 android:id="@+id/leftAvatar"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
@@ -66,7 +67,7 @@
             android:layout_marginBottom="10dp"
             android:layout_marginRight="10dp"
             android:layout_alignParentRight="true">
-            <com.teachingassistant.Support.View.CircleImageView.CircleImageView
+            <com.teachingassistant.Support.CustomView.CircleImageView.CircleImageView
                 android:id="@+id/rightAvatar"
                 android:layout_width="35dp"
                 android:layout_height="35dp"

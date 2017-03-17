@@ -4,14 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import com.teachingassistant.MyApplication;
 import com.teachingassistant.R;
 import com.tencent.TIMManager;
-import com.tencent.TIMMessage;
-import com.tencent.TIMMessageListener;
-
-import java.util.List;
 
 public class LoadActivity extends AppCompatActivity {
 
@@ -22,14 +19,6 @@ public class LoadActivity extends AppCompatActivity {
         //初始化IMSDK
         TIMManager.getInstance().init(MyApplication.getContext());
         TIMManager.getInstance().disableCrashReport();
-
-        //注册消息监听
-        TIMManager.getInstance().addMessageListener(new TIMMessageListener() {
-            @Override
-            public boolean onNewMessages(List<TIMMessage> list) {
-                return false;
-            }
-        });
 
         new Handler().postDelayed(new Runnable() {
             @Override

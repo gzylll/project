@@ -21,7 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="160dp">
 
-        <com.teachingassistant.Support.View.WheelView.view.WheelView
+        <com.teachingassistant.Support.CustomView.WheelView.view.WheelView
             android:id="@+id/choose_week_wheel"
             android:layout_gravity="center_vertical"
             android:layout_width="match_parent"

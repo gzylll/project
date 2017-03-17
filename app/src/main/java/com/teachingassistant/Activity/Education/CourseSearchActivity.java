@@ -12,14 +12,14 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.teachingassistant.Presenter.MyHandler;
+import com.teachingassistant.Presentation.Adapter.MyHandler;
 import com.teachingassistant.R;
 import com.teachingassistant.Support.Bean.Course;
 import com.teachingassistant.MyApplication;
 import com.teachingassistant.Support.Bean.dbHelper;
 import com.teachingassistant.Support.Bean.okHttpUilts;
 import com.teachingassistant.Support.Net.Jxjson;
-import com.teachingassistant.Support.View.Dialog.ChooseTimeDialog;
+import com.teachingassistant.Support.CustomView.Dialog.ChooseTimeDialog;
 
 import org.json.JSONException;
 

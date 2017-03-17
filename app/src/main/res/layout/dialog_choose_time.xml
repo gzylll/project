@@ -23,14 +23,14 @@
         android:layout_height="160dp"
         android:layout_margin="5dp">
 
-        <com.teachingassistant.Support.View.WheelView.view.WheelView
+        <com.teachingassistant.Support.CustomView.WheelView.view.WheelView
             android:id="@+id/choose_xuennian_wheel"
             android:gravity="center"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"/>
 
-        <com.teachingassistant.Support.View.WheelView.view.WheelView
+        <com.teachingassistant.Support.CustomView.WheelView.view.WheelView
             android:id="@+id/choose_xueqi_wheel"
             android:gravity="center"
             android:layout_width="0dp"

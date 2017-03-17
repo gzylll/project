@@ -11,7 +11,7 @@ import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.teachingassistant.Presenter.MyHandler;
+import com.teachingassistant.Presentation.Adapter.MyHandler;
 import com.teachingassistant.R;
 import com.teachingassistant.MyApplication;
 import com.teachingassistant.Support.Bean.okHttpUilts;

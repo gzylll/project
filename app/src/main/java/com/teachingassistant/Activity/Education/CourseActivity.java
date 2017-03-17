@@ -17,12 +17,12 @@ import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
-import com.teachingassistant.Presenter.CourseListViewAdapter;
+import com.teachingassistant.Presentation.Adapter.CourseListViewAdapter;
 import com.teachingassistant.R;
 import com.teachingassistant.MyApplication;
 import com.teachingassistant.Support.Bean.Time;
 import com.teachingassistant.Support.Bean.dbHelper;
-import com.teachingassistant.Support.View.Dialog.ChooseWeekDialog;
+import com.teachingassistant.Support.CustomView.Dialog.ChooseWeekDialog;
 
 import java.util.ArrayList;
 import java.util.Date;
