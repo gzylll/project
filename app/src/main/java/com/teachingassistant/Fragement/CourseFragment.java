@@ -2,6 +2,7 @@ package com.teachingassistant.Fragement;
 
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,6 +20,7 @@ import com.teachingassistant.Support.Bean.dbHelper;
 import com.tencent.TIMGroupAddOpt;
 import com.tencent.TIMGroupBaseInfo;
 import com.tencent.TIMGroupManager;
+import com.tencent.TIMGroupMemberInfo;
 import com.tencent.TIMValueCallBack;
 
 import java.util.ArrayList;
@@ -36,7 +38,6 @@ public class CourseFragment extends Fragment {
     private AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
         }
     };
 
@@ -122,7 +123,7 @@ public class CourseFragment extends Fragment {
                 Log.i("查询群是否创建",String.valueOf(timGroupBaseInfos.size()));
                 myGroup = timGroupBaseInfos;
                 //列表非空表示自己的群已创建,否则建群
-                if(timGroupBaseInfos.size()==0) {
+                if(timGroupBaseInfos.size()==0&&list!= null) {
                     for(int i=0;i<list.size();i++)
                     {
                         TIMGroupManager.CreateGroupParam param
@@ -133,6 +134,14 @@ public class CourseFragment extends Fragment {
                         Log.i("建群",i+":"+transformName(list.get(i).get("groupName").toString()));
                         //设定名字
                         param.setGroupName(transformName(list.get(i).get("groupName").toString()));
+                        //设定ID
+                        //param.setGroupId();
+                        //添加老师
+                        //List<TIMGroupMemberInfo> l = new ArrayList<>();
+                        //TIMGroupMemberInfo info = new TIMGroupMemberInfo();
+                        //info.setUser(工号);
+                        //l.add(info);
+                        //param.setMembers(l);
                         //设定允许所有人加群
                         param.setAddOption(TIMGroupAddOpt.TIM_GROUP_ADD_ANY);
                         //建群
