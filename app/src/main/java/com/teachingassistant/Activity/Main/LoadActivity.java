@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.teachingassistant.MyApplication;
 import com.teachingassistant.R;
-import com.teachingassistant.Support.TIM.InitBusiness;
 import com.tencent.TIMManager;
 import com.tencent.TIMMessage;
 import com.tencent.TIMMessageListener;
@@ -21,7 +20,8 @@ public class LoadActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_load);
         //初始化IMSDK
-        InitBusiness.initIMsdk(MyApplication.getContext());
+        TIMManager.getInstance().init(MyApplication.getContext());
+        TIMManager.getInstance().disableCrashReport();
 
         //注册消息监听
         TIMManager.getInstance().addMessageListener(new TIMMessageListener() {
