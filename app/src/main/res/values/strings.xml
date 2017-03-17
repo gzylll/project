@@ -46,10 +46,13 @@
     <string name="chat_file">文件</string>
     <string name="chat_photo">拍摄</string>
     <string name="chat_video">小视频</string>
+    <string name="chat_audio_too_short">录音过短，请重试</string>
+    <string name="chat_video_too_short">录制过短，请重试</string>
     <string name="chat_up_finger">手指上滑，取消发送</string>
 
     <string name="chat_image_preview_title">图片预览</string>
     <string name="chat_image_preview_send">发送</string>
     <string name="chat_image_preview_ori">原图发送</string>
+
 
 </resources>
