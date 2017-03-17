@@ -1,4 +1,4 @@
-package com.teachingassistant.Support.View.CustomControl;
+package com.teachingassistant.Support.CustomView.IMView;
 
 import android.hardware.Camera;
 import android.media.CamcorderProfile;
@@ -19,7 +19,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.teachingassistant.R;
-import com.teachingassistant.Support.View.viewfeatures.ChatView;
+import com.teachingassistant.Presentation.ViewFeatures.ChatView;
 
 import java.io.File;
 import java.io.IOException;

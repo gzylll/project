@@ -1,4 +1,4 @@
-package com.teachingassistant.Support.View.viewfeatures;
+package com.teachingassistant.Presentation.ViewFeatures;
 
 import com.tencent.TIMMessage;
 import com.tencent.TIMMessageDraft;
@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * 聊天界面的接口
  */
-public interface ChatView extends MvpView {
+public interface ChatView {
 
     /**
      * 显示消息

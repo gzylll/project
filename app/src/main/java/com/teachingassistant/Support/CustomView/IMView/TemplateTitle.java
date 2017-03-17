@@ -1,4 +1,4 @@
-package com.teachingassistant.Support.View.CustomControl;
+package com.teachingassistant.Support.CustomView.IMView;
 
 import android.app.Activity;
 import android.content.Context;

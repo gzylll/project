@@ -11,7 +11,7 @@
         android:scaleType="centerCrop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-    <com.teachingassistant.Support.View.CustomControl.TemplateTitle
+    <com.teachingassistant.Support.CustomView.IMView.TemplateTitle
         android:id="@+id/imagePreviewTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -6,7 +6,7 @@
     android:paddingTop="8dp"
     android:paddingLeft="10dp">
     <!--头像-->
-    <com.teachingassistant.Support.CustomView.CircleImageView.CircleImageView
+    <com.teachingassistant.Support.CustomView.IMView.CircleImageView
         android:id="@+id/avatar"
         android:layout_width="45dp"
         android:layout_height="45dp" />

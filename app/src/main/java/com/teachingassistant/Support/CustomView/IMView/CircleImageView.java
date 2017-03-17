@@ -1,4 +1,4 @@
-package com.teachingassistant.Support.CustomView.CircleImageView;
+package com.teachingassistant.Support.CustomView.IMView;
 
 import android.content.Context;
 import android.graphics.Bitmap;

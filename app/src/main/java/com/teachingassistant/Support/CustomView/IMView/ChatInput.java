@@ -1,4 +1,4 @@
-package com.teachingassistant.Support.View.CustomControl;
+package com.teachingassistant.Support.CustomView.IMView;
 
 import android.Manifest;
 import android.app.Activity;
@@ -28,7 +28,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.teachingassistant.R;
-import com.teachingassistant.Support.View.viewfeatures.ChatView;
+import com.teachingassistant.Presentation.ViewFeatures.ChatView;
 
 import java.io.IOException;
 import java.io.InputStream;
