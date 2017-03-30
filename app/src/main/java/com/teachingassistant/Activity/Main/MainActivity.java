@@ -6,25 +6,27 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTabHost;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
 
-import com.teachingassistant.Fragement.ConversationFragment;
-import com.teachingassistant.Fragement.CourseFragment;
-import com.teachingassistant.Fragement.DynamicFragment;
-import com.teachingassistant.Fragement.EducationFragment;
+import com.teachingassistant.Bean.TeacherInfo;
+import com.teachingassistant.Fragment.ConversationFragment;
+import com.teachingassistant.Fragment.CourseFragment;
+import com.teachingassistant.Fragment.DynamicFragment;
+import com.teachingassistant.Fragment.EducationFragment;
 import com.teachingassistant.R;
+import com.teachingassistant.Bean.Group;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class MainActivity extends FragmentActivity implements
-        ViewPager.OnPageChangeListener,FragmentTabHost.OnTabChangeListener{
+        ViewPager.OnPageChangeListener,FragmentTabHost.OnTabChangeListener {
 
     private LayoutInflater inflater;
     private FragmentTabHost tabHost;
@@ -43,6 +45,7 @@ public class MainActivity extends FragmentActivity implements
     //viewpager
     private ViewPager vp;
     private List<Fragment> list = new ArrayList<>();
+    private ImageView msgUnread;
 
 
     @Override
@@ -78,8 +81,7 @@ public class MainActivity extends FragmentActivity implements
     }
 
     //初始化fragement
-    private void initPage()
-    {
+    private void initPage() {
         ConversationFragment csf = new ConversationFragment();
         CourseFragment cf = new CourseFragment();
         DynamicFragment df = new DynamicFragment();
@@ -101,6 +103,15 @@ public class MainActivity extends FragmentActivity implements
                 return list.size();
             }
         });
+
+        //加载group数据
+        Group.getInstance();
+        //加载老师数据
+        try {
+            TeacherInfo.init();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     //set tab view
@@ -110,6 +121,9 @@ public class MainActivity extends FragmentActivity implements
         icon.setImageResource(ImageArray[index]);
         TextView title = (TextView) view.findViewById(R.id.tabtitle);
         title.setText(titleArray[index]);
+        if(index==3) {
+            msgUnread = (ImageView) view.findViewById(R.id.tabUnread);
+        }
         return view;
     }
 
@@ -145,7 +159,6 @@ public class MainActivity extends FragmentActivity implements
     @Override
     public void onPageSelected(int position) {
         tabHost.setCurrentTab(position);
-        Log.i("position:",tabHost.getCurrentTabTag());
     }
 
     /**
@@ -157,5 +170,12 @@ public class MainActivity extends FragmentActivity implements
     public void onTabChanged(String tabId) {
         int position = tabHost.getCurrentTab();
         vp.setCurrentItem(position);
+    }
+
+    /**
+     * 设置未读tab显示
+     */
+    public void setMsgUnread(boolean noUnread){
+        msgUnread.setVisibility(noUnread?View.GONE:View.VISIBLE);
     }
 }

@@ -3,6 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:focusable="true">
+    <!--系统消息，显示时间-->
     <TextView
         android:id="@+id/systemMessage"
         android:layout_width="wrap_content"
@@ -12,9 +13,11 @@
         android:visibility="gone"
         android:textColor="@color/text_gray2"
         android:textSize="12sp" />
+    <!--消息显示-->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <!--接收的消息-->
         <RelativeLayout
             android:id="@+id/leftPanel"
             android:layout_width="wrap_content"
@@ -22,7 +25,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp">
-
+            <!--显示发送者的头像-->
             <com.teachingassistant.Support.CustomView.IMView.CircleImageView
                 android:id="@+id/leftAvatar"
                 android:layout_width="35dp"
@@ -34,6 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/leftAvatar"
                 android:orientation="vertical">
+                <!--发送者-->
                 <TextView
                     android:id="@+id/sender"
                     android:layout_width="wrap_content"
@@ -43,6 +47,7 @@
                     android:layout_marginBottom="3dp"
                     android:textSize="12sp"
                     android:text="name"/>
+                <!--消息-->
                 <RelativeLayout
                     android:id="@+id/leftMessage"
                     android:layout_width="wrap_content"
@@ -56,9 +61,8 @@
                     android:gravity="center"
                     android:background="@drawable/bg_bubble_gray"/>
             </LinearLayout>
-
-
         </RelativeLayout>
+        <!--自己发送的消息-->
         <RelativeLayout
             android:id="@+id/rightPanel"
             android:layout_width="wrap_content"
@@ -67,12 +71,14 @@
             android:layout_marginBottom="10dp"
             android:layout_marginRight="10dp"
             android:layout_alignParentRight="true">
+            <!--自己的头像-->
             <com.teachingassistant.Support.CustomView.IMView.CircleImageView
                 android:id="@+id/rightAvatar"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:src="@mipmap/head_me"
                 android:layout_alignParentRight="true"/>
+            <!--自己的消息-->
             <RelativeLayout
                 android:id="@+id/rightMessage"
                 android:layout_width="wrap_content"
@@ -96,6 +102,7 @@
                 android:textSize="12sp"
                 android:textColor="@color/text_gray1"
                 android:visibility="gone"/>
+            <!--发送状态-->
             <RelativeLayout
                 android:id="@+id/sendStatus"
                 android:layout_width="wrap_content"

@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 import com.teachingassistant.MyApplication;
 import com.teachingassistant.R;
-import com.teachingassistant.Support.Bean.okHttpUilts;
+import com.teachingassistant.Bean.okHttpUilts;
 import com.teachingassistant.Support.Net.Jxhtml;
 import com.tencent.TIMCallBack;
 import com.tencent.TIMManager;

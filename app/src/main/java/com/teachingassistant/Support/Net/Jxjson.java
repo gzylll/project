@@ -1,6 +1,6 @@
 package com.teachingassistant.Support.Net;
 
-import com.teachingassistant.Support.Bean.Course;
+import com.teachingassistant.Bean.Course;
 
 import org.json.JSONArray;
 import org.json.JSONException;

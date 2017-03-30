@@ -31,6 +31,11 @@ public class MessageEvent extends Observable implements TIMMessageListener {
         return instance;
     }
 
+    /**
+     * 被动通知新消息到达，主要是接收消息时
+     * @param list
+     * @return
+     */
     @Override
     public boolean onNewMessages(List<TIMMessage> list) {
         for (TIMMessage item:list){
@@ -41,7 +46,7 @@ public class MessageEvent extends Observable implements TIMMessageListener {
     }
 
     /**
-     * 主动通知新消息
+     * 主动通知新消息，主要是发送消息时
      */
     public void onNewMessage(TIMMessage message){
         setChanged();

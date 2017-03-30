@@ -20,8 +20,8 @@ import android.widget.TextView;
 import com.teachingassistant.Presentation.Adapter.CourseListViewAdapter;
 import com.teachingassistant.R;
 import com.teachingassistant.MyApplication;
-import com.teachingassistant.Support.Bean.Time;
-import com.teachingassistant.Support.Bean.dbHelper;
+import com.teachingassistant.Bean.Time;
+import com.teachingassistant.Bean.dbHelper;
 import com.teachingassistant.Support.CustomView.Dialog.ChooseWeekDialog;
 
 import java.util.ArrayList;

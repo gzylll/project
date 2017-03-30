@@ -1,4 +1,4 @@
-package com.teachingassistant.Support.Bean;
+package com.teachingassistant.Bean;
 
 import com.teachingassistant.Support.Cookies.CookieManager;
 

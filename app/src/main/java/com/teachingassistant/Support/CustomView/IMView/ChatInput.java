@@ -307,6 +307,7 @@ public class ChatInput extends RelativeLayout implements TextWatcher,View.OnClic
     public void onClick(View v) {
         Activity activity = (Activity) getContext();
         int id = v.getId();
+        //点击发送按钮
         if (id == R.id.btn_send){
             chatView.sendText();
         }

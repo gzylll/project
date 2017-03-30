@@ -4,7 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.teachingassistant.Support.Bean.Time;
+import com.teachingassistant.Bean.Time;
 
 import java.util.ArrayList;
 import java.util.Date;

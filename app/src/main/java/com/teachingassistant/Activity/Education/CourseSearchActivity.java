@@ -14,10 +14,10 @@ import android.widget.Toast;
 
 import com.teachingassistant.Presentation.Adapter.MyHandler;
 import com.teachingassistant.R;
-import com.teachingassistant.Support.Bean.Course;
+import com.teachingassistant.Bean.Course;
 import com.teachingassistant.MyApplication;
-import com.teachingassistant.Support.Bean.dbHelper;
-import com.teachingassistant.Support.Bean.okHttpUilts;
+import com.teachingassistant.Bean.dbHelper;
+import com.teachingassistant.Bean.okHttpUilts;
 import com.teachingassistant.Support.Net.Jxjson;
 import com.teachingassistant.Support.CustomView.Dialog.ChooseTimeDialog;
 
@@ -236,7 +236,7 @@ public class CourseSearchActivity extends AppCompatActivity {
                     studentInfo.get("学号");
             //没有重复的话，记录在本地
             if (app.writeCourseTableName(dbName)) {
-                com.teachingassistant.Support.Bean.dbHelper dbHelper = new dbHelper(this, dbName);
+                com.teachingassistant.Bean.dbHelper dbHelper = new dbHelper(this, dbName);
                 //解析数据为对象并传入数据库插入
                 for (int i = 0; i < kb.size(); i++) {
                     dbHelper.instert(kb.get(i));

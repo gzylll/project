@@ -1,8 +1,8 @@
-package com.teachingassistant.Fragement;
+package com.teachingassistant.Fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,31 +14,37 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.teachingassistant.Activity.Chat.ChatActivity;
+import com.teachingassistant.Bean.TeacherInfo;
 import com.teachingassistant.MyApplication;
 import com.teachingassistant.R;
-import com.teachingassistant.Support.Bean.dbHelper;
+import com.teachingassistant.Bean.dbHelper;
+import com.tencent.TIMConversationType;
 import com.tencent.TIMGroupAddOpt;
 import com.tencent.TIMGroupBaseInfo;
 import com.tencent.TIMGroupManager;
-import com.tencent.TIMGroupMemberInfo;
 import com.tencent.TIMValueCallBack;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class CourseFragment extends Fragment {
 
     private ListView groupList;
+    private SimpleAdapter simpleAdapter;
     private View view;
     private List<Map<String,Object>> list;
     private TextView nonGroup;
-    private Boolean refreshTag = false;
 
     private AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+            Map<String,Object> map = list.get((int)id);
+            Intent intent = new Intent(getActivity(), ChatActivity.class);
+            intent.putExtra("identify", map.get("groupID").toString());
+            intent.putExtra("type", TIMConversationType.Group);
+            startActivity(intent);
         }
     };
 
@@ -72,18 +78,13 @@ public class CourseFragment extends Fragment {
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
         if(isVisibleToUser){
-            if(refreshTag) {
-                createGroup();
-                refreshTag = true;
-            }
-            else{
-                connectGroup();
-            }
+            createGroup();
         }
     }
 
 
     private void showGroup() {
+        Log.i("ShowGroup","list");
         MyApplication app = new MyApplication();
         String s = "2016-2017-2-"+app.readAccount();
         if(app.IsExistsCourseTable(s))
@@ -102,14 +103,15 @@ public class CourseFragment extends Fragment {
                     }
                 }
             }
-            SimpleAdapter simpleAdapter = new SimpleAdapter(getActivity(),
+            simpleAdapter = new SimpleAdapter(getActivity(),
                                                             list,
                                                             R.layout.list_items_course_group,
                                                             new String[]{"groupName"},
                                                             new int[]{R.id.courseGroupName});
             groupList.setAdapter(simpleAdapter);
+            groupList.setOnItemClickListener(onItemClickListener);
         }
-        else{
+        else {
             nonGroup.setVisibility(View.VISIBLE);
         }
     }
@@ -135,43 +137,60 @@ public class CourseFragment extends Fragment {
                     Log.i("我的群：",i+":id:"+baseInfo.getGroupId()+",name:"+baseInfo.getGroupName());
                 }
                 //列表非空表示自己的群已创建,否则建群
-                if(timGroupBaseInfos.size()==0&&list!= null) {
-                    for(int i=0;i<list.size();i++)
-                    {
-                        TIMGroupManager.CreateGroupParam param
-                                = TIMGroupManager.getInstanceById(MyApplication.TIMAccount)
-                                .new CreateGroupParam();
-                        //设为公开群
-                        param.setGroupType("Public");
-                        Log.i("建群",i+":"+transformName(list.get(i).get("groupName").toString()));
-                        //设定名字
-                        param.setGroupName(transformName(list.get(i).get("groupName").toString()));
-                        //设定ID
-                        //param.setGroupId();
-                        //添加老师
-                        //List<TIMGroupMemberInfo> l = new ArrayList<>();
-                        //TIMGroupMemberInfo info = new TIMGroupMemberInfo();
-                        //info.setUser(工号);
-                        //l.add(info);
-                        //param.setMembers(l);
-                        //设定允许所有人加群
-                        param.setAddOption(TIMGroupAddOpt.TIM_GROUP_ADD_ANY);
-                        //建群
-                        TIMGroupManager.getInstance().createGroup(param, new TIMValueCallBack<String>() {
-                            @Override
-                            public void onError(int i, String s) {
-                                Toast.makeText(getActivity(),"建群失败\n"+i+":"+s,Toast.LENGTH_SHORT).show();
+                if(list!=null){
+                    if(timGroupBaseInfos.size()<list.size()) {
+                        for(int i=0;i<list.size();i++)
+                        {
+                            TIMGroupManager.CreateGroupParam param
+                                    = TIMGroupManager.getInstanceById(MyApplication.TIMAccount)
+                                    .new CreateGroupParam();
+                            //设为公开群
+                            param.setGroupType("Public");
+                            Log.i("建群",i+":"+transformName(list.get(i).get("groupName").toString()));
+                            //设定名字
+                            param.setGroupName(transformName(list.get(i).get("groupName").toString()));
+                            //设定ID
+                            String s = TeacherInfo.findTeacherIDByName(list.get(i).get("groupName").toString());
+                            if(s!=null){
+                                param.setGroupId(s);
+                                list.get(i).put("groupID",s);
+                                Log.i("GroupID",s);
                             }
+                            //添加老师
+                            //List<TIMGroupMemberInfo> l = new ArrayList<>();
+                            //TIMGroupMemberInfo info = new TIMGroupMemberInfo();
+                            //info.setUser(工号);
+                            //l.add(info);
+                            //param.setMembers(l);
+                            //设定允许所有人加群
+                            param.setAddOption(TIMGroupAddOpt.TIM_GROUP_ADD_ANY);
+                            //建群
+                            TIMGroupManager.getInstance().createGroup(param, new TIMValueCallBack<String>() {
+                                @Override
+                                public void onError(int i, String s) {
+                                    Toast.makeText(getActivity(),"建群失败\n"+i+":"+s,Toast.LENGTH_SHORT).show();
+                                }
 
-                            @Override
-                            public void onSuccess(String s) {
-                                Toast.makeText(getActivity(),"建群成功\n"+s,Toast.LENGTH_SHORT).show();
-                            }
-                        });
+                                @Override
+                                public void onSuccess(String s) {
+                                    Toast.makeText(getActivity(),"建群成功\n"+s,Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }
                     }
-                }
-                else{
-                    connectGroup();
+                    else{
+                        list.clear();
+                        for(int i=0;i<timGroupBaseInfos.size();i++){
+                            TIMGroupBaseInfo baseInfo = timGroupBaseInfos.get(i);
+                            Map<String,Object> map = new HashMap<>();
+                            map.put("groupName",baseInfo.getGroupName());
+                            map.put("groupID",baseInfo.getGroupId());
+                            list.add(map);
+                        }
+                        //数据改变通知listview
+                        simpleAdapter.notifyDataSetChanged();
+                        connectGroup();
+                    }
                 }
             }
         });

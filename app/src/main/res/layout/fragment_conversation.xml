@@ -1,18 +1,17 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.teachingassistant.Fragement.ConversationFragment">
+    tools:context="com.teachingassistant.Fragment.ConversationFragment">
 
     <include
         android:id="@+id/FragmentTitle"
         layout="@layout/fragment_title"/>
 
-    <TextView
+    <ListView
+        android:layout_below="@id/FragmentTitle"
+        android:id="@+id/conversation_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:textSize="20sp"
-        android:text="此处为聊天消息"/>
+        android:layout_height="wrap_content"/>
 
-</FrameLayout>
+</RelativeLayout>
