@@ -1,5 +1,7 @@
 package com.teachingassistant.Support.Net;
 
+import android.util.Log;
+
 import com.teachingassistant.Bean.Course;
 
 import org.json.JSONArray;
@@ -58,6 +60,7 @@ public class Jxjson {
             JSONObject jsonObject1 = json_kb.getJSONObject(i);
             Course course = new Course();
             course.setCourseName(jsonObject1.getString("kcmc"));
+            Log.i("PraseKB",jsonObject1.getString("kcmc"));
             course.setCourseDay(jsonObject1.getString("xqj"));
             course.setCourseTeacher(jsonObject1.getString("xm")+"("
                                     +jsonObject1.getString("zcmc")+")");
@@ -67,14 +70,50 @@ public class Jxjson {
             int week[] = new int[25];
             for(int j=0;j<25;j++)
                 week[j]=0;
-            String weeks = jsonObject1.getString("zcd");
-            for(int j=0;j<weeks.length();j++)
+            String weeks[] = jsonObject1.getString("zcd").split(",");
+            Log.i("PraseKB",jsonObject1.getString("zcd"));
+            for(int j=0;j<weeks.length;j++) {
+                String str = weeks[j];
+                for(int k=0;k<str.length();k++){
+                    if(str.charAt(k)=='-'){
+                        int a = Integer.parseInt(str.substring(0,k)),b=0,l=k+1;
+                        boolean isshuang = false;
+                        boolean isdan = false;
+                        for(;l<str.length();l++)
+                        {
+                            if(str.charAt(l)=='周')
+                            {
+                                b=Integer.parseInt(str.substring(k+1,l));
+                                break;
+                            }
+                        }
+                        if(l!=str.length()-1&&str.charAt(l+1)=='('){
+                            if(str.charAt(l+2)=='双')
+                                isshuang = true;
+                            else if(str.charAt(l+2)=='单')
+                                isdan = true;
+                        }
+                        for(int m=a-1;m<b;m++)
+                        {
+                            if(isdan&&m%2==0)
+                                week[m]=1;
+                            else if(isshuang&&m%2==1)
+                                week[m]=1;
+                            else if(!isdan&&!isshuang)
+                                week[m]=1;
+                        }
+                    }
+                }
+            }
+            /*
+            for(int j=0;j<weeks.length;j++)
             {
                 for(int k=j;k<weeks.length();k++)
                 {
                     if(weeks.charAt(k)=='-')
                     {
                         String str = weeks.substring(j,k);
+                        Log.i("PraseKB",str);
                         int a = Integer.parseInt(str),b=0,l=k+1;
                         for(;l<weeks.length();l++)
                         {
@@ -92,7 +131,7 @@ public class Jxjson {
                         j=l+1;
                         break;
                     }
-                    if(weeks.charAt(k)=='周')
+                    else if(weeks.charAt(k)=='周')
                     {
                         String str = weeks.substring(j,k);
                         int a = Integer.parseInt(str);
@@ -102,6 +141,7 @@ public class Jxjson {
                     }
                 }
             }
+            */
             course.setCourseWeek(week);
             kb.add(course);
         }
